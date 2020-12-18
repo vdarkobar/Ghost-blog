@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  ghost:
+    image: ghost:3-alpine
+    container_name: ghost
+    environment:
+      NODE_ENV: production
+    volumes:
+      - ./ghost/content:/var/lib/ghost/content
+      - ./ghost/config.production.json:/var/lib/ghost/config.production.json
+    networks:
+      - proxy
+    restart: always
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=proxy"
+      - "traefik.http.routers.ghost-secure.entrypoints=websecure"
+      - "traefik.http.routers.ghost-secure.rule=Host(`blog.yourdomain`)"
+      - "traefik.http.routers.ghost-secure.service=ghost-service"
+      - "traefik.http.services.ghost-service.loadbalancer.server.port=2368"
+
+networks:
+  proxy:
+    external: true
