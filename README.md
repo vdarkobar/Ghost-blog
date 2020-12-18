@@ -1,5 +1,5 @@
 # Ghost-blog
-## deploy Ghost blog
+## deploy Ghost blog (router/service/port enabled using Labels in docker-compose.yml)
 
 ##### Create docker network
 ```
