@@ -1,0 +1,29 @@
+ {
+  "url": "https://blog.yourdomain",
+  "server": {
+    "port": 2368,
+    "host": "0.0.0.0"
+  },
+  "database": {
+    "client": "sqlite3",
+    "connection": {
+      "filename": "/var/lib/ghost/content/data/ghost.db"
+    }
+  },
+  "mail": {
+    "transport": "Direct"
+  },
+  "logging": {
+    "path": "/var/lib/ghost/content/logs/",
+    "level": "info",
+    "rotation": {
+      "enabled": true,
+      "count": 15,
+      "period": "1d"
+    },
+    "transports": ["stdout", "file"]
+  },
+  "paths": {
+    "contentPath": "/var/lib/ghost/content"
+  }
+}
