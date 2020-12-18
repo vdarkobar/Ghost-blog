@@ -24,7 +24,7 @@ sudo docker-compose -f Ghost-blog/docker-compose.yml up -d
 ```
 ##### Log
 ```
-sudo docker logs -tf --tail="50" Ghost-blog
+sudo docker logs -tf --tail="50" ghost
 ```
 ##### Config your own email
 ```
