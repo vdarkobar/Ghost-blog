@@ -10,17 +10,18 @@ sudo docker network create proxy
 
 ### Clone this git repository:
 ```
-git clone https://vdarkobar:2211620c9da5dab0c7bb77e9aeb02087d293b293@github.com/vdarkobar/Ghost-blog.git
+echo -n "Enter directory name: "; read NAME; mkdir -p "$NAME"; cd "$NAME" \
+&& git clone https://vdarkobar:2211620c9da5dab0c7bb77e9aeb02087d293b293@github.com/vdarkobar/Ghost-blog.git .
 ```
 
 ##### Change domain name
 ```
-sudo nano Ghost-blog/docker-compose.yml
-sudo nano Ghost-blog/ghost/config.production.json
+sudo nano docker-compose.yml
+sudo nano ghost/config.production.json
 ```
 ##### Start
 ```
-sudo docker-compose -f Ghost-blog/docker-compose.yml up -d
+sudo docker-compose up -d
 ```
 ##### Log
 ```
