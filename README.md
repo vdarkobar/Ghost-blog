@@ -1,19 +1,16 @@
 # Ghost-blog
 ## deploy Ghost blog 
-### (router/service/port enabled using Labels in docker-compose.yml)
-
+### 
 
 ##### Create docker network
 ```
-sudo docker network create proxy
+sudo docker network create ghost
 ```
-
 ### Clone this git repository:
 ```
 echo -n "Enter directory name: "; read NAME; mkdir -p "$NAME"; cd "$NAME" \
 && git clone https://vdarkobar:2211620c9da5dab0c7bb77e9aeb02087d293b293@github.com/vdarkobar/Ghost-blog.git .
 ```
-
 ##### Change domain name
 ```
 sudo nano docker-compose.yml
