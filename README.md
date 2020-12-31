@@ -1,7 +1,9 @@
 # Ghost-blog
-## deploy Ghost blog 
-### 
-
+  
+<p align="left">
+  <a href="https://github.com/vdarkobar/Traefik2">Traefik2</a>
+</p>  
+  
 ##### Create docker network
 ```
 sudo docker network create ghost
