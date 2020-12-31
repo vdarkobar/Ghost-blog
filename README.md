@@ -16,6 +16,33 @@ echo -n "Enter directory name: "; read NAME; mkdir -p "$NAME"; cd "$NAME" \
 sudo nano docker-compose.yml
 sudo nano ghost/config.production.json
 ```
+  
+##### Dynamic config
+```
+  # All Routers
+  routers:
+
+    # Ghost router
+    Ghost:
+      service: ghost-service
+      middlewares:
+        - www-redirect@file
+      entryPoints:
+        - "websecure"
+      rule: "Host(`domain`) || Host(`www.domain`)" # adjust domain and www.domain
+
+
+  # All Services
+  services:
+
+    # Ghost service
+    ghost-service:
+      loadBalancer:
+        servers:
+          - url: "http://local-ip:2368" # adjust ip and port nummber (fixed port?!)
+
+```
+
 ##### Start
 ```
 sudo docker-compose up -d
