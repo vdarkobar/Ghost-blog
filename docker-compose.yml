@@ -12,7 +12,7 @@ services:
     networks:
       - ghost
     restart: always
-#    labels: # use labels only if on the same VM as Traefik (same Docker host)
+#    labels: # uncomment labels only if on the same VM as Traefik (same Docker host)
 #      - "traefik.enable=true"
 #      - "traefik.docker.network=proxy"
 #      - "traefik.http.routers.ghost-secure.entrypoints=websecure"
