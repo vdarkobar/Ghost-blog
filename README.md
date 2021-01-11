@@ -29,16 +29,16 @@ sudo docker network create ghost
 ```
 ### Clone this git repository:
 ```
-echo -n "Enter directory name: "; read NAME; mkdir -p "$NAME"; cd "$NAME" \
+RED='\033[0;31m'; echo -n "Enter directory name: "; read NAME; mkdir -p "$NAME"; cd "$NAME" \
 && git clone https://github.com/vdarkobar/Ghost-blog.git .
 ```
-##### Change domain name
+### Change domain name:
 ```
 sudo nano docker-compose.yml
 sudo nano ghost/config.production.json
 ```
   
-##### Dynamic config
+### Dynamic config:
 ```
   # All Routers
   routers:
@@ -64,15 +64,15 @@ sudo nano ghost/config.production.json
 
 ```
 
-##### Start
+### Start:
 ```
 sudo docker-compose up -d
 ```
-##### Log
+### Log:
 ```
 sudo docker logs -tf --tail="50" ghost
 ```
-##### Config your own email
+### Config your own email:
 ```
 # 
 "mail": {
