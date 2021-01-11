@@ -16,7 +16,7 @@ services:
 #      - "traefik.enable=true"
 #      - "traefik.docker.network=proxy"
 #      - "traefik.http.routers.ghost-secure.entrypoints=websecure"
-#      - "traefik.http.routers.ghost-secure.rule=Host(`blog.yourdomain`)"
+#      - "traefik.http.routers.ghost-secure.rule=Host(`0201`)"
 #      - "traefik.http.routers.ghost-secure.service=ghost-service"
 #      - "traefik.http.services.ghost-service.loadbalancer.server.port=2368"
 
