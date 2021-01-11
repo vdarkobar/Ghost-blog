@@ -68,9 +68,9 @@ Create file: *service_name.yml* in Traefik: */data/configurations/* folder for r
   # All Routers
   routers:
 
-    # Ghost router
-    Ghost:
-      service: ghost-service
+    # Ghost-blog router
+    Ghost-blog:
+      service: ghost-blog-service
       middlewares:
         - www-redirect@file # match the name from WWW-Redirect in middlewares.yml
       entryPoints:
@@ -82,7 +82,7 @@ Create file: *service_name.yml* in Traefik: */data/configurations/* folder for r
   services:
 
     # Ghost service
-    ghost-service:
+    ghost-blog-service:
       loadBalancer:
         servers:
           - url: "http://local-ip:2368" # adjust ip and port nummber
@@ -100,14 +100,14 @@ http:
   middlewares:
   
     # WWW-Redirect
-    www-redirect: # match the name from Ghost router in service_name.yml
+    www-redirect: # match the name from Ghost-blog router in service_name.yml
       redirectRegex:
         regex: "^https://example.com/(.*)"
         replacement: "https://www.example.com/${1}"
 ```  
   
-Additional settings...............
-### Config your own email:
+### Option to config your own email:
+Add to *ghost/config.production.json* file.
 ```
 # 
 "mail": {
