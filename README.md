@@ -72,7 +72,7 @@ Create file: *service_name.yml* in Traefik: */data/configurations/* folder for r
     Ghost:
       service: ghost-service
       middlewares:
-        - www-redirect@file
+        - www-redirect@file # match the name from WWW-Redirect in middlewares.yml
       entryPoints:
       rule: "Host(`subdomain.example.com`)" # comment out if using domain name
 #      rule: "Host(`example.com`) || Host(`www.example.com`)" # comment out if using subdomain, used for non-www to www redirect
@@ -88,7 +88,25 @@ Create file: *service_name.yml* in Traefik: */data/configurations/* folder for r
           - url: "http://local-ip:2368" # adjust ip and port nummber
 
 ```
+  
+### Middlewares *(Traefik VM)*:
+Add to: *middlewares.yml* in Traefik: */data/configurations/* for non-www to www redirect  
+  
+* *If using Domain name for Ghost-blog*
+```
+http:
 
+  # All middlewares
+  middlewares:
+  
+    # WWW-Redirect
+    www-redirect: # match the name from Ghost router in service_name.yml
+      redirectRegex:
+        regex: "^https://example.com/(.*)"
+        replacement: "https://www.example.com/${1}"
+```  
+  
+Additional settings...............
 ### Config your own email:
 ```
 # 
