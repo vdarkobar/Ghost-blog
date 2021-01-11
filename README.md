@@ -35,7 +35,7 @@ RED='\033[0;31m'; echo -n "Enter directory name: "; read NAME; mkdir -p "$NAME";
   
 #### *Decide what you will use for*:
 ```
-Subdomain and\or Domain name.
+Subdomain and/or Domain name.
 ```
   
 ### Select and run all at once. Enter required data:
