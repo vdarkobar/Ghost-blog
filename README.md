@@ -69,5 +69,4 @@ sudo docker logs -tf --tail="50" ghost
         }
     }
 }
-
 ```
