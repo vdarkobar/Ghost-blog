@@ -72,7 +72,7 @@ Create file: *service_name.yml* in Traefik: */data/configurations/* folder for r
     Ghost-blog:
       service: ghost-blog-service
       middlewares:
-        - www-redirect@file # match the name from WWW-Redirect in middlewares.yml
+#        - www-redirect@file # Uncomment, give it a unique name. Set the same name in WWW-Redirect (middlewares.yml) if using domain name only.
       entryPoints:
       rule: "Host(`subdomain.example.com`)" # comment out if using domain name
 #      rule: "Host(`example.com`) || Host(`www.example.com`)" # comment out if using subdomain, used for non-www to www redirect
