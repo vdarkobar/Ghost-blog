@@ -1,7 +1,7 @@
 # Ghost-blog
   
 <p align="left">
-  <a href="https://github.com/vdarkobar/Home_Lab">Home</a>
+  <a href="https://github.com/vdarkobar/Home_Cloud#small-home-cloud">Home</a>
 </p>  
   
 ##### Create docker network
