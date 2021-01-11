@@ -1,8 +1,27 @@
 # Ghost-blog
   
 <p align="left">
-  <a href="https://github.com/vdarkobar/Home_Cloud#small-home-cloud">Home</a>
+  <a href="https://github.com/vdarkobar/Home_Cloud#small-home-cloud">Home</a> |
+  <a href="https://github.com/vdarkobar/Ghost-blog">Ghost</a> |
+  <a href="https://github.com/vdarkobar/Bitwarden#bitwarden">Bitwarden</a> |
+  <a href="https://github.com/vdarkobar/WordPress#wordpress">WordPress</a> |
+  <a href="https://github.com/vdarkobar/Portainer">Joomla</a>  
+  <br><br>
 </p>  
+  
+Login to <a href="https://dash.cloudflare.com/">CloudFlare</a> and set Domain name, or Domain name and Subdomain for your WordPress.
+```
+    A | example.com | YOUR WAN IP
+```
+or:
+```
+    A | example.com | YOUR WAN IP
+```
+```
+    CNAME | subdomain | @ (or example.com)
+```
+
+---
   
 ##### Create docker network
 ```
