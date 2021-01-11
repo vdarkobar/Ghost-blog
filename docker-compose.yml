@@ -4,6 +4,8 @@ services:
   ghost:
     image: ghost:3-alpine
     container_name: ghost
+    ports:
+      - $GPORTN:2368
     environment:
       NODE_ENV: production
     volumes:
@@ -16,7 +18,7 @@ services:
 #      - "traefik.enable=true"
 #      - "traefik.docker.network=proxy"
 #      - "traefik.http.routers.ghost-secure.entrypoints=websecure"
-#      - "traefik.http.routers.ghost-secure.rule=Host(`0201`)"
+#      - "traefik.http.routers.ghost-secure.rule=Host(`$SUBDOMAIN$DOMAINNAME`)"
 #      - "traefik.http.routers.ghost-secure.service=ghost-service"
 #      - "traefik.http.services.ghost-service.loadbalancer.server.port=2368"
 
