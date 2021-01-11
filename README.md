@@ -23,22 +23,49 @@ or:
 
 ---
   
-##### Create docker network
+### Create docker network:
 ```
 sudo docker network create ghost
 ```
-### Clone this git repository:
+### Clone WordPress Git Repository:
 ```
 RED='\033[0;31m'; echo -n "Enter directory name: "; read NAME; mkdir -p "$NAME"; cd "$NAME" \
 && git clone https://github.com/vdarkobar/Ghost-blog.git .
 ```
-### Change domain name:
+  
+#### *Decide what you will use for*:
 ```
-sudo nano docker-compose.yml
-sudo nano ghost/config.production.json
+Subdomain,
+Domain name.
 ```
   
-### Dynamic config:
+### Select and run all at once. Enter required data:
+*Only works once, on wrong data input delete folder and clone again*.
+```
+clear
+RED='\033[0;31m'
+echo -ne "${RED}Enter Time Zone: "; read TZONE; \
+echo -ne "${RED}Enter Domain name: "; read DNAME; \
+sed -i "s|01|${TZONE}|" .env && \
+sed -i "s|02|${DNAME}|" .env && \
+echo | openssl rand -base64 48 > secrets/mysql_root_password.secret && \
+echo | openssl rand -base64 20 > secrets/wp_mysql_password.secret && \
+sudo chown -R root:root secrets/ && \
+sudo chmod -R 600 secrets/
+```
+  
+### Start:  
+*Change Container names (docker-compose.yml), if multiple instances are planed.*
+```
+sudo docker-compose up -d
+```
+### Log:
+```
+sudo docker logs -tf --tail="50" ghost
+```
+
+### Dynamic config (Traefik VM):
+Create file: *service_name.yml* in Traefik: */data/configurations/* folder for routing and to get a free SSL certificate.
 ```
   # All Routers
   routers:
@@ -64,14 +91,6 @@ sudo nano ghost/config.production.json
 
 ```
 
-### Start:
-```
-sudo docker-compose up -d
-```
-### Log:
-```
-sudo docker logs -tf --tail="50" ghost
-```
 ### Config your own email:
 ```
 # 
