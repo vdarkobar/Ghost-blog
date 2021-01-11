@@ -128,5 +128,6 @@ Add to *ghost/config.production.json* file.
 }
 ```
   
-
+<p align="center">
 <a href="https://github.com/vdarkobar/Ghost-blog#ghost-blog">top of the page</a>
+</p>
