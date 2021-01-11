@@ -35,8 +35,7 @@ RED='\033[0;31m'; echo -n "Enter directory name: "; read NAME; mkdir -p "$NAME";
   
 #### *Decide what you will use for*:
 ```
-Subdomain,
-Domain name.
+Domain name and\or Subdomain.
 ```
   
 ### Select and run all at once. Enter required data:
@@ -44,14 +43,13 @@ Domain name.
 ```
 clear
 RED='\033[0;31m'
-echo -ne "${RED}Enter Time Zone: "; read TZONE; \
 echo -ne "${RED}Enter Domain name: "; read DNAME; \
-sed -i "s|01|${TZONE}|" .env && \
-sed -i "s|02|${DNAME}|" .env && \
-echo | openssl rand -base64 48 > secrets/mysql_root_password.secret && \
-echo | openssl rand -base64 20 > secrets/wp_mysql_password.secret && \
-sudo chown -R root:root secrets/ && \
-sudo chmod -R 600 secrets/
+echo -ne "${RED}Enter Subdomain with . (dot) at the end, or just press Enter to default to Domain name: "; read SDNAME; \
+sed -i "s|01|${DNAME}|" ghost/config.production.json && \
+sed -i "s|02|${SDNAME}|" ghost/config.production.json && \
+sed -i "s|01|${DNAME}|" docker-compose.yml && \
+sed -i "s|02|${SDNAME}|" docker-compose.yml && \
+rm README.md
 ```
   
 ### Start:  
@@ -76,8 +74,8 @@ Create file: *service_name.yml* in Traefik: */data/configurations/* folder for r
       middlewares:
         - www-redirect@file
       entryPoints:
-        - "websecure"
-      rule: "Host(`domain`) || Host(`www.domain`)" # adjust domain and www.domain
+      rule: "Host(`subdomain.example.com`)" # comment out if using domain name
+#      rule: "Host(`example.com`) || Host(`www.example.com`)" # comment out if using subdomain, used for non-www to www redirect
 
 
   # All Services
@@ -87,7 +85,7 @@ Create file: *service_name.yml* in Traefik: */data/configurations/* folder for r
     ghost-service:
       loadBalancer:
         servers:
-          - url: "http://local-ip:2368" # adjust ip and port nummber (fixed port?!)
+          - url: "http://local-ip:2368" # adjust ip and port nummber
 
 ```
 
