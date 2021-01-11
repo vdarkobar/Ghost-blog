@@ -27,7 +27,7 @@ or:
 ```
 sudo docker network create ghost
 ```
-### Clone WordPress Git Repository:
+### Clone Ghost-blog Git Repository:
 ```
 RED='\033[0;31m'; echo -n "Enter directory name: "; read NAME; mkdir -p "$NAME"; cd "$NAME" \
 && git clone https://github.com/vdarkobar/Ghost-blog.git .
