@@ -23,7 +23,7 @@ or:
 
 ---
   
-### Create docker network:
+### Create Docker network:
 ```
 sudo docker network create ghost
 ```
@@ -36,7 +36,8 @@ RED='\033[0;31m'; echo -n "Enter directory name: "; read NAME; mkdir -p "$NAME";
 #### *Decide what you will use for*:
 ```
 Domain name,
-Subdomain (if planned).
+Subdomain (if planned),
+Ghost-blog Port Number.
 ```
   
 ### Select and run all at once. Enter required data:
@@ -46,10 +47,11 @@ clear
 RED='\033[0;31m'
 echo -ne "${RED}Enter Domain name: "; read DNAME; \
 echo -ne "${RED}Enter Subdomain with . (dot) at the end, or just press Enter to default to Domain name: "; read SDNAME; \
+echo -ne "${RED}Enter Ghost-blog Port Number (GPORTN:2368): "; read GPORTN; \
 sed -i "s|01|${DNAME}|" ghost/config.production.json && \
 sed -i "s|02|${SDNAME}|" ghost/config.production.json && \
-sed -i "s|01|${DNAME}|" docker-compose.yml && \
-sed -i "s|02|${SDNAME}|" docker-compose.yml && \
+sed -i "s|01|${DNAME}|" .env && \
+sed -i "s|02|${SDNAME}|" .env && \
 rm README.md
 ```
   
@@ -70,7 +72,7 @@ Create file: *service_name.yml* in Traefik: */data/configurations/* folder for r
   routers:
 
     # Ghost-blog router
-    Ghost-blog:
+    ghost-blog:
       service: ghost-blog-service
       middlewares:
 #        - www-redirect@file # Uncomment, give it a unique name. Set the same name in WWW-Redirect (middlewares.yml) if using domain name only.
@@ -86,7 +88,7 @@ Create file: *service_name.yml* in Traefik: */data/configurations/* folder for r
     ghost-blog-service:
       loadBalancer:
         servers:
-          - url: "http://local-ip:2368" # adjust ip and port nummber
+          - url: "http://local-ip:2368" # adjust ip
 
 ```
   
