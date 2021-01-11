@@ -53,7 +53,7 @@ rm README.md
 ```
   
 ### Start:  
-*Change Container names (docker-compose.yml), if multiple instances are planed.*
+*Change Container names/Port numbers (docker-compose.yml/, ghost/config.production.json), if multiple instances are planed.*
 ```
 sudo docker-compose up -d
 ```
