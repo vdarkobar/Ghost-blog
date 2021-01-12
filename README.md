@@ -52,6 +52,7 @@ sed -i "s|01|${DNAME}|" ghost/config.production.json && \
 sed -i "s|02|${SDNAME}|" ghost/config.production.json && \
 sed -i "s|01|${DNAME}|" .env && \
 sed -i "s|02|${SDNAME}|" .env && \
+sed -i "s|03|${GPORTN}|" .env && \
 rm README.md
 ```
   
