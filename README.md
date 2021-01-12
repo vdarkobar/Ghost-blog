@@ -93,7 +93,7 @@ http:
     ghost-blog-service:
       loadBalancer:
         servers:
-          - url: "http://local-ip:2368" # adjust ip
+          - url: "http://local-ip:GPORTN" # adjust ip and port number
 
 ```
   
