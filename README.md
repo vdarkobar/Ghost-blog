@@ -68,6 +68,8 @@ sudo docker logs -tf --tail="50" ghost
 ### Dynamic config (Traefik VM):
 Create file: *service_name.yml* in Traefik: */data/configurations/* folder for routing and to get a free SSL certificate.
 ```
+http:
+
   # All Routers
   routers:
 
