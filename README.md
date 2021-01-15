@@ -78,7 +78,6 @@ http:
     ghost-blog:
       service: ghost-blog-service
       middlewares:
-        - "secureHeaders"
 #        - www-redirect@file # Uncomment, give it a unique name. Set the same name in WWW-Redirect (middlewares.yml) if using domain name only.
       entryPoints:
         - "websecure"
